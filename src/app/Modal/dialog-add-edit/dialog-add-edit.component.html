@@ -1,0 +1,93 @@
+<h1 mat-dialog-title>{{tituloAccion}}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formInfo"  (ngSubmit)="addEditInfo()">
+        <mat-grid-list cols="1" rowHeight="80px">
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Numero Factura</mat-label>
+                    <input matInput formControlName="numberFact" autocomplete="off" type="number">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Fecha</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="fecha">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Ciudad</mat-label>
+                    <input matInput formControlName="city" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre Cliente</mat-label>
+                    <input matInput formControlName="clienName" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Placa</mat-label>
+                    <input matInput formControlName="plateVeh" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Marca</mat-label>
+                    <input matInput formControlName="brand" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Arreglo</mat-label>
+                    <input matInput formControlName="activityName" autocomplete="off">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Cantidad</mat-label>
+                    <input matInput formControlName="number" autocomplete="off" type="number">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Costo</mat-label>
+                    <input matInput formControlName="valor" autocomplete="off" type="number">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Total</mat-label>
+                    <input matInput formControlName="total" autocomplete="off" type="number">
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Proveedor</mat-label>
+                    <input matInput name="supplier" value="ALD" readonly>
+                  </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+  <button mat-raised-button color="primary"
+   (click)="addEditInfo()"
+   [disabled]="formInfo.invalid"
+   >{{botonAccion}}
+</button>
+</div>
